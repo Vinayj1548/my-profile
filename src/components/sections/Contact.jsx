@@ -20,7 +20,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-900 text-white">
+    <section id="contact" className="py-16 bg-gray-900 text-white px-4 sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -28,85 +28,61 @@ export default function Contact() {
       >
         <h2 className="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
         
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {/* Contact Card */}
           <Card className="bg-gray-800 shadow-lg">
             <CardHeader>
-              <CardTitle className="text-white">Contact Me</CardTitle>
+              <CardTitle className="text-white text-lg">Contact Me</CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <Button 
-                  onClick={handleEmailClick}
-                  className="w-full flex items-center gap-2 justify-start border-gray-600 hover:bg-gray-700"
-                >
-                  <Mail className="h-5 w-5" />
-                  {email}
-                </Button>
-                <Button className="w-full flex items-center gap-2 justify-start border-gray-600 hover:bg-gray-700">
-                  <Phone className="h-5 w-5" />
-                  <a href={`tel:${phone1}`} className="text-white">{phone1}</a>
-                </Button>
-                <Button className="w-full flex items-center gap-2 justify-start border-gray-600 hover:bg-gray-700">
-                  <Phone className="h-5 w-5" />
-                  <a href={`tel:${phone2}`} className="text-white">{phone2}</a>
-                </Button>
-              </div>
+            <CardContent className="space-y-4">
+              <Button 
+                onClick={handleEmailClick}
+                className="w-full flex items-center gap-2 justify-start border-gray-600 hover:bg-gray-700 py-3 px-4"
+              >
+                <Mail className="h-5 w-5" />
+                {email}
+              </Button>
+              <Button className="w-full flex items-center gap-2 justify-start border-gray-600 hover:bg-gray-700 py-3 px-4">
+                <Phone className="h-5 w-5" />
+                <a href={`tel:${phone1}`} className="text-white">{phone1}</a>
+              </Button>
+              <Button className="w-full flex items-center gap-2 justify-start border-gray-600 hover:bg-gray-700 py-3 px-4">
+                <Phone className="h-5 w-5" />
+                <a href={`tel:${phone2}`} className="text-white">{phone2}</a>
+              </Button>
             </CardContent>
           </Card>
 
           {/* Social Media Card */}
           <Card className="bg-gray-800 shadow-lg">
             <CardHeader>
-              <CardTitle className="text-white">Connect With Me</CardTitle>
+              <CardTitle className="text-white text-lg">Connect With Me</CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <Button className="w-full border-gray-600 hover:bg-gray-700">
-                  <a
-                    href={linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 w-full"
-                  >
-                    <SiLinkedin className="w-5 h-5" />
-                    LinkedIn
-                  </a>
-                </Button>
-                <Button className="w-full border-gray-600 hover:bg-gray-700">
-                  <a
-                    href={github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 w-full"
-                  >
-                    <SiGithub className="w-5 h-5" />
-                    GitHub
-                  </a>
-                </Button>
-                <Button className="w-full border-gray-600 hover:bg-gray-700">
-                  <a
-                    href={whatsapp1}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 w-full"
-                  >
-                    <SiWhatsapp className="w-5 h-5" />
-                    WhatsApp1
-                  </a>
-                </Button>
-                <Button className="w-full border-gray-600 hover:bg-gray-700">
-                  <a
-                    href={whatsapp2}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 w-full"
-                  >
-                    <SiWhatsapp className="w-5 h-5" />
-                    WhatsApp2
-                  </a>
-                </Button>
-              </div>
+            <CardContent className="space-y-4">
+              <Button className="w-full border-gray-600 hover:bg-gray-700 py-3 px-4">
+                <a href={linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 w-full">
+                  <SiLinkedin className="w-5 h-5" />
+                  LinkedIn
+                </a>
+              </Button>
+              <Button className="w-full border-gray-600 hover:bg-gray-700 py-3 px-4">
+                <a href={github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 w-full">
+                  <SiGithub className="w-5 h-5" />
+                  GitHub
+                </a>
+              </Button>
+              <Button className="w-full border-gray-600 hover:bg-gray-700 py-3 px-4">
+                <a href={whatsapp1} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 w-full">
+                  <SiWhatsapp className="w-5 h-5" />
+                  WhatsApp1
+                </a>
+              </Button>
+              <Button className="w-full border-gray-600 hover:bg-gray-700 py-3 px-4">
+                <a href={whatsapp2} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 w-full">
+                  <SiWhatsapp className="w-5 h-5" />
+                  WhatsApp2
+                </a>
+              </Button>
             </CardContent>
           </Card>
         </div>

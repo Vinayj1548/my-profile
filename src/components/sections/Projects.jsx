@@ -2,23 +2,23 @@ import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/ca
 import { motion } from "framer-motion";
 import { GithubIcon, ExternalLink } from "lucide-react";
 import { Button } from "../../components/ui/button";
-import netImg from "../../assets/screenshot.png";
-import bookImg from "../../assets/screenshot2.png";
+import proj1Img from "../../assets/screenshot.png";
+import proj2Img from "../../assets/Screenshot3.png";
 
 const projects = [
   {
-    title: "Netflix-Clone",
-    description: "A modern web page built with HTML and CSS",
-    image: netImg,
+    title: "Netflix Clone",
+    description: "A modern web page built with HTML and CSS.",
+    image: proj1Img,
     github: "https://github.com/Vinayj1548/Netflix-Clone",
     demo: "https://vinayj1548.github.io/Netflix-Clone/",
   },
   {
-    title: "NewsApp",
-    description: "Full-stack application with real-time features *(API only works in development server)*",
-    image: bookImg,
-    github: "https://github.com/Vinayj1548/NewsMonkey-React",
-    demo: "https://vinayj1548.github.io/NewsMonkey-React/",
+    title: "TExtUtils-React",
+    description: "A react application with real-time features *(AI integration is to be done).",
+    image: proj2Img,
+    github: "https://github.com/Vinayj1548/TExtUtils-React",
+    demo: "https://vinayj1548.github.io/TExtUtils-React/",
   },
 ];
 
@@ -31,9 +31,11 @@ export default function Projects() {
         viewport={{ once: true }}
       >
         <h2 className="text-3xl font-bold mb-8 text-center">Projects</h2>
-        <div className="grid md:grid-cols-2 gap-6">
+
+        {/* Responsive Grid Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
-            <Card key={project.title} className="bg-gray-800 shadow-lg">
+            <Card key={project.title} className="bg-gray-800 shadow-md rounded-lg hover:scale-105 transition duration-300">
               <CardHeader>
                 <CardTitle className="text-gray-100">{project.title}</CardTitle>
               </CardHeader>
@@ -41,27 +43,29 @@ export default function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="rounded-lg w-full h-48 object-cover shadow-md"
+                  className="rounded-lg w-full aspect-[16/9] object-cover shadow-md"
                 />
                 <p className="text-gray-300">{project.description}</p>
-                <div className="flex gap-4">
+                
+                {/* Buttons for GitHub and Live Demo */}
+                <div className="flex flex-wrap gap-4">
                   <Button 
                     variant="outline" 
-                    className="border-gray-600 hover:bg-gray-700"
+                    className="border-gray-600 hover:bg-gray-700 flex items-center gap-2"
                     asChild
                   >
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <GithubIcon className="w-4 h-4 mr-2" />
+                      <GithubIcon className="w-5 h-5" />
                       GitHub
                     </a>
                   </Button>
                   <Button 
                     variant="outline" 
-                    className="border-gray-600 hover:bg-gray-700"
+                    className="border-gray-600 hover:bg-gray-700 flex items-center gap-2"
                     asChild
                   >
                     <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4 mr-2" />
+                      <ExternalLink className="w-5 h-5" />
                       Live Demo
                     </a>
                   </Button>

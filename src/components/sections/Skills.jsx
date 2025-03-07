@@ -2,12 +2,13 @@ import { Card, CardContent } from "../../components/ui/card";
 import { motion } from "framer-motion";
 import { 
   SiReact, SiNodedotjs, SiTailwindcss, SiJavascript, SiCplusplus, 
-  SiC , SiPython, SiMongodb, SiNextdotjs, SiExpress, 
+  SiC, SiPython, SiMongodb, SiNextdotjs, SiExpress, 
   SiTypescript, SiPostgresql, SiGit, SiFirebase 
 } from "react-icons/si";
-import { FaDatabase , FaJava } from "react-icons/fa";
+import { FaDatabase, FaJava } from "react-icons/fa";
 import { TbMathFunction } from "react-icons/tb";
 
+// Skill Data
 const skills = [
   { name: "React", icon: SiReact, color: "text-blue-400" },
   { name: "Next.js", icon: SiNextdotjs, color: "text-black dark:text-white" },
@@ -29,25 +30,42 @@ const skills = [
   { name: "Firebase", icon: SiFirebase, color: "text-yellow-500" }
 ];
 
+// Animation Variants
+const fadeIn = {
+  hidden: { opacity: 0, y: 20, scale: 0.9 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.3 } }
+};
+
 export default function Skills() {
   return (
-    <section id="skills" className="py-20 bg-gray-900 text-white">
+    <section id="skills" className="py-20 bg-gray-900 text-white px-4 sm:px-6 lg:px-8">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true }}
+        className="text-center"
       >
-        <h2 className="text-3xl font-bold mb-8 text-center">Skills</h2>
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
-          {skills.map((skill) => (
-            <Card key={skill.name} className="bg-gray-800 shadow-lg p-2 rounded-md">
-              <CardContent className="p-4 flex flex-col items-center justify-center space-y-2">
-                <skill.icon className={`w-8 h-8 ${skill.color}`} />
-                <span className="font-medium text-gray-100 text-sm">{skill.name}</span>
-              </CardContent>
-            </Card>
+        <motion.h2 className="text-3xl text-white font-bold mb-8" variants={fadeIn}>
+          Skills
+        </motion.h2>
+
+        <motion.div 
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {skills.map((skill, index) => (
+            <motion.div key={skill.name} variants={fadeIn}>
+              <Card className="bg-gray-800 shadow-md rounded-lg transition-all duration-200 transform hover:scale-105">
+                <CardContent className="p-4 flex flex-col items-center justify-center space-y-2">
+                  <skill.icon className={`w-10 h-10 sm:w-12 sm:h-12 ${skill.color}`} />
+                  <span className="font-medium text-gray-100 text-sm sm:text-base">{skill.name}</span>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );
